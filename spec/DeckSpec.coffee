@@ -10,6 +10,7 @@ describe 'deck', ->
 
   describe 'hit', ->
     it 'should give the last card from the deck', ->
+      console.log "deck length ", deck.length
       assert.strictEqual deck.length, 50
-      assert.strictEqual deck.last(), hand.hit()
+      assert.strictEqual deck.last(), hand.hit().last()
       assert.strictEqual deck.length, 49

@@ -4,7 +4,19 @@ class window.Hand extends Backbone.Collection
   initialize: (array, @deck, @isDealer) ->
 
   hit: ->
+    console.log "Hit!"
+    console.log @
     @add(@deck.pop())
+    # if @scores > 21
+    #   console.log "Bust!"
+    #   @stand
+
+
+  stand: ->
+    # there should be an event to that signals end of round
+    console.log "Stand!"
+    # @trigger('stand', @)
+
 
   hasAce: -> @reduce (memo, card) ->
     memo or card.get('value') is 1
