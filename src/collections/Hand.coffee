@@ -3,6 +3,7 @@ class window.Hand extends Backbone.Collection
 
   initialize: (array, @deck, @isDealer) ->
 
+
   hit: ->
     console.log "Hit!"
     console.log @

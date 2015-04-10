@@ -8,4 +8,7 @@ class window.App extends Backbone.Model
     @set 'dealerHand', deck.dealDealer()
 
 
+    this.on('stand', console.log "App sees stand");
+
+
 
