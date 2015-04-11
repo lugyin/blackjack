@@ -17,7 +17,6 @@ class window.AppView extends Backbone.View
   initialize: ->
     @render()
     @model.on 'winner', =>
-      console.log("App View hears the winner")
       @changeWinner()
 
   render: ->
@@ -27,5 +26,4 @@ class window.AppView extends Backbone.View
     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealerHand').el
 
   changeWinner: ->
-    console.log "App View tries to change the winner"
     @$('.winner-container h2').text(@model.winner)

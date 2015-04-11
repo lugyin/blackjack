@@ -8,10 +8,8 @@ class window.App extends Backbone.Model
     @playing = true
 
     @get('playerHand').on 'bust', =>
-      console.log "BUSTED"
       @evaluateGame()
     @get('dealerHand').on 'bust', =>
-      console.log "BUSTED"
       @evaluateGame()
     @get('playerHand').on 'stand', =>
       @playing = false
@@ -25,22 +23,17 @@ class window.App extends Backbone.Model
 
   evaluateGame: ->
     @playing = false
-    console.log("Evaluating game")
     playerScore = @get('playerHand').scores()
     dealerScore = @get('dealerHand').scores()
 
     if (playerScore > 21) or (dealerScore > playerScore and dealerScore <= 21)
-      console.log "DEALER WINS"
       @winner = "Dealer wins."
     else if (dealerScore > 21) or (playerScore > dealerScore and playerScore <= 21)
-      console.log "PLAYER WINS"
       @winner = "You Win!!!"
     else
-      console.log "PUSH"
       @winner = "Push. No one wins."
 
     @trigger 'winner', @
 
-    # location.reload()
 
 
