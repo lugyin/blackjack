@@ -16,7 +16,7 @@ class window.Hand extends Backbone.Collection
   stand: ->
     # there should be an event to that signals end of round
     console.log "Stand!"
-    # @trigger('stand', @)
+    @trigger('stand', @)
 
 
   hasAce: -> @reduce (memo, card) ->
@@ -36,3 +36,18 @@ class window.Hand extends Backbone.Collection
       possible[1]
     else
       possible[0]
+
+  dealerPlay: (playerScore) ->
+    @.models[0].flip()
+
+    tryToWin = () =>
+      if (@scores() >= 17) or (playerScore == 21)
+        return # stand
+      else
+        @hit()
+        tryToWin()
+
+    tryToWin()
+
+
+
