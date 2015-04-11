@@ -6,11 +6,10 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     console.log "Hit!"
-    console.log @
     @add(@deck.pop())
-    if @scores > 21
+    if @scores() > 21
       console.log "Bust!"
-      @stand
+      @trigger 'bust', @
 
 
   stand: ->
