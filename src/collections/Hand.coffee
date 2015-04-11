@@ -8,9 +8,9 @@ class window.Hand extends Backbone.Collection
     console.log "Hit!"
     console.log @
     @add(@deck.pop())
-    # if @scores > 21
-    #   console.log "Bust!"
-    #   @stand
+    if @scores > 21
+      console.log "Bust!"
+      @stand
 
 
   stand: ->
@@ -41,7 +41,7 @@ class window.Hand extends Backbone.Collection
     @.models[0].flip()
 
     tryToWin = () =>
-      if (@scores() >= 17) or (playerScore == 21)
+      if (@scores() >= 17) or (playerScore >= 21)
         return # stand
       else
         @hit()
