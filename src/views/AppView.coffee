@@ -10,7 +10,7 @@ class window.AppView extends Backbone.View
     'click .hit-button': ->
       @model.get('playerHand').hit()
     'click .stand-button': ->
-      @model.get('dealerHand').dealerPlay(@model.get('playerHand').scores())
+      @model.get('playerHand').stand()
 
   initialize: ->
     @render()
