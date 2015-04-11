@@ -7,9 +7,6 @@ class window.HandView extends Backbone.View
     @collection.on 'add remove change', => @render()
     @render()
 
-  events:
-    'stand': console.log "sees stand in hand view"
-
   render: ->
     @$el.children().detach()
     @$el.html @template @collection
